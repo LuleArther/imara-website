@@ -1,0 +1,87 @@
+<!--META {"title": "Volunteer — Imara Health Initiative AFRIKA", "description": "Doctors, nurses, students, Village Health Team members and youth advocates: volunteer with Imara at medical camps, outreaches and health advocacy in Northern Uganda.", "nav": "involved", "scripts": ["assets/js/forms.js"]} -->
+
+    {{breadcrumb:1420|Next Generation of Health Leaders|Volunteer}}
+
+    <!-- who we need (template "why choose us") -->
+    <section class="rts-service-area rts-section-gap home-five">
+        <div class="container">
+            <div class="banner-one-wrapper">
+                <div class="title-img"><img src="assets/images/ui/title-shape.png" alt=""></div>
+                <h2 class="title-banner">Who We're Looking For</h2>
+                <p class="desc">Give a day at a medical camp, help with follow-up calls, or lend your voice <br> to youth health advocacy.</p>
+            </div>
+            <div class="service-area-inner pt--100">
+                <div class="row gap-y-30">
+                    <div class="col-lg-4 col-md-6"><div class="service-wrapper"><div class="icon fa-icon"><i class="fa-light fa-user-doctor"></i></div><div class="content"><h3 class="title">Doctors &amp; Specialists</h3><p class="service-txt">See patients at camps and accept referrals from Imara Health Bridge.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="service-wrapper"><div class="icon fa-icon"><i class="fa-light fa-user-nurse"></i></div><div class="content"><h3 class="title">Nurses &amp; Midwives</h3><p class="service-txt">Screening, triage, health education and patient follow-up.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="service-wrapper"><div class="icon fa-icon"><i class="fa-light fa-graduation-cap"></i></div><div class="content"><h3 class="title">Students</h3><p class="service-txt">Medical, nursing and public health students learning leadership in the field.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="service-wrapper"><div class="icon fa-icon"><i class="fa-light fa-house-medical-circle-check"></i></div><div class="content"><h3 class="title">Village Health Teams</h3><p class="service-txt">Help us reach families and follow up with patients in their villages.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="service-wrapper"><div class="icon fa-icon"><i class="fa-light fa-bullhorn"></i></div><div class="content"><h3 class="title">Youth Advocates</h3><p class="service-txt">Speak up on youth health, join the podcast and policy work.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="service-wrapper"><div class="icon fa-icon"><i class="fa-light fa-camera"></i></div><div class="content"><h3 class="title">Media &amp; Support</h3><p class="service-txt">Photography, communications, logistics and data entry.</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="imara-form-area" id="volunteer-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-card">
+                        <div class="form-card-head">
+                            <div class="eyebrow">Volunteer registration</div>
+                            <h2>Join Team Imara</h2>
+                            <p>Tell us about yourself. We will contact you about upcoming camps and training.</p>
+                        </div>
+                        <div class="notice danger form-alert" role="alert" tabindex="-1"><i class="fa-solid fa-circle-exclamation"></i><p>Please check the highlighted fields.</p></div>
+
+                        <form class="imara-form" data-imara-form="volunteer" action="api/submit.php?type=volunteer" method="post" novalidate>
+                            <div class="hp-field" aria-hidden="true"><label for="v-website">Leave empty</label><input type="text" id="v-website" name="website" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="started_at" value=""><input type="hidden" name="client_token" value="">
+                            <div class="form-grid">
+                                <div class="field full"><label class="lbl" for="v-name">Full name <span class="req">*</span></label><input type="text" id="v-name" name="full_name" autocomplete="name" maxlength="120" required><div class="err">Please enter your name.</div></div>
+                                <div class="field"><label class="lbl" for="v-phone">Phone / WhatsApp <span class="req">*</span></label><div class="phone-group"><select name="phone_code" aria-label="Country code">{{phonecodes}}</select><input type="tel" id="v-phone" name="phone" inputmode="tel" placeholder="7XX XXX XXX" required></div><div class="err">Please enter a valid phone number.</div></div>
+                                <div class="field"><label class="lbl" for="v-email">Email <span class="opt">(optional)</span></label><input type="email" id="v-email" name="email" autocomplete="email"><div class="err">Please enter a valid email.</div></div>
+                                <div class="field"><label class="lbl" for="v-role">I am a <span class="req">*</span></label><select id="v-role" name="role" required data-other="#v-role-other-wrap">{{select:volunteer_roles|Choose one}}</select><div class="err">Please choose one.</div></div>
+                                <div class="field" id="v-role-other-wrap" hidden><label class="lbl" for="v-role-other">Please describe <span class="req">*</span></label><input type="text" id="v-role-other" name="role_other" maxlength="80"><div class="err">Please describe your role.</div></div>
+                                <div class="field"><label class="lbl" for="v-inst">School, university or workplace</label><input type="text" id="v-inst" name="institution" maxlength="120" placeholder="e.g. Gulu University"></div>
+                                <div class="field"><label class="lbl" for="v-district">Where do you live? <span class="req">*</span></label><input type="text" id="v-district" name="district" maxlength="80" placeholder="e.g. Gulu City" required><div class="err">Please tell us where you live.</div></div>
+                                <div class="field full"><span class="lbl">When can you help?</span><div class="choice-group">
+                                    <label class="choice-pill"><input type="checkbox" name="availability[]" value="Weekdays"><span>Weekdays</span></label>
+                                    <label class="choice-pill"><input type="checkbox" name="availability[]" value="Weekends"><span>Weekends</span></label>
+                                    <label class="choice-pill"><input type="checkbox" name="availability[]" value="Medical camps only"><span>Medical camps only</span></label>
+                                    <label class="choice-pill"><input type="checkbox" name="availability[]" value="Remote / online"><span>Remote / online</span></label>
+                                </div></div>
+                                <div class="field full"><label class="lbl" for="v-msg">Your skills and why you want to volunteer</label><textarea id="v-msg" name="message" maxlength="1000"></textarea></div>
+                                <label class="consent-box required-box full field" for="v-consent"><input type="checkbox" id="v-consent" name="consent" value="1" required><span>I agree that Imara may contact me about volunteering and keep my details for that purpose, as explained in the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>. <span class="req" style="color:#B42318">*</span></span></label>
+                            </div>
+                            <div class="form-nav"><span></span><button type="submit" class="rts-btn btn-primary">Register as a volunteer</button></div>
+                        </form>
+
+                        <div class="confirm-card" data-success-for="volunteer" hidden tabindex="-1">
+                            <div class="tick"><i class="fa-solid fa-check"></i></div>
+                            <p class="apwoyo">Apwoyo matek!</p>
+                            <h2>Welcome to Team Imara, <span data-fill="first_name"></span>.</h2>
+                            <div class="ref-box"><small>Your reference</small><strong data-fill="reference"></strong></div>
+                            <p>We will contact you about upcoming camps, training and ways to help.</p>
+                            <p class="sign">Strong Communities. Strong Health. Strong Afrika.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="side-info">
+                        <div class="banner-shape-area"><span class="shape"></span><span class="shape"></span><span class="shape"></span></div>
+                        <h3>What volunteers do</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-tents"></i><span>Serve at free medical camps in Gulu, Kitgum and Lira</span></li>
+                            <li><i class="fa-solid fa-phone"></i><span>Follow up with patients after referrals</span></li>
+                            <li><i class="fa-solid fa-chalkboard-user"></i><span>Lead health talks in schools and churches</span></li>
+                            <li><i class="fa-solid fa-microphone"></i><span>Join the Imara Voices Podcast and policy work</span></li>
+                            <li><i class="fa-solid fa-graduation-cap"></i><span>Train in public health, leadership and diplomacy</span></li>
+                        </ul>
+                        <p style="margin-top:24px">Questions? <a href="https://wa.me/{{WHATSAPP}}">WhatsApp us</a> or email <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>

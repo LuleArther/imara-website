@@ -1,0 +1,109 @@
+<!--META {"title": "Partner With Us — Imara Health Initiative AFRIKA", "description": "Healthcare institutions, universities, donors, volunteers and strategic partners: work with Imara to bring quality healthcare to underserved communities in Northern Uganda.", "nav": "involved", "scripts": ["assets/js/forms.js"]} -->
+
+    {{breadcrumb:1339|Partnership Portal|Partner With Us}}
+
+    <section class="rts-section-gap bg-white">
+        <div class="container">
+            <div class="section-head">
+                <div class="title-img"><img src="assets/images/ui/title-shape.png" alt=""></div>
+                <h2 class="title-banner">Together, Health Goes Further</h2>
+                <p class="desc">We partner with communities, universities, government and development organisations. Choose how you would like to work with us.</p>
+            </div>
+            <div class="row gap-y-30">
+                <div class="col-lg-4 col-md-6">
+                    <div class="aud-card" data-sal="slide-up" data-sal-duration="800">
+                        <i class="fa-light fa-hospital aud-i"></i>
+                        <h3>Healthcare institutions</h3>
+                        <p>Hospitals, clinics and laboratories: join our referral network and receive patients who have been screened and prepared by our team.</p>
+                        <a href="#partner-form" class="rts-btn btn-secondary" data-prefill="partner_type=Healthcare institution (referral network)">Join the referral network</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="aud-card" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                        <i class="fa-light fa-building-columns aud-i"></i>
+                        <h3>Academic &amp; research partners</h3>
+                        <p>Universities &mdash; especially Gulu University &mdash; for student placements, community research and evidence for policy.</p>
+                        <a href="#partner-form" class="rts-btn btn-secondary" data-prefill="partner_type=Academic or research partner">Partner on research</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="aud-card" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+                        <i class="fa-light fa-hand-holding-heart aud-i"></i>
+                        <h3>Donors &amp; development partners</h3>
+                        <p>Fund free medical camps, outreach and youth health advocacy. We share camp reports and budgets with our partners.</p>
+                        <a href="#partner-form" class="rts-btn btn-secondary" data-prefill="partner_type=Donor or development partner">Fund our work</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 offset-lg-2">
+                    <div class="aud-card" data-sal="slide-up" data-sal-duration="800">
+                        <i class="fa-light fa-people-group aud-i"></i>
+                        <h3>Volunteers</h3>
+                        <p>Doctors, nurses, students, Village Health Team members and youth advocates.</p>
+                        <a href="volunteer.html" class="rts-btn btn-secondary">Register as a volunteer</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="aud-card" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                        <i class="fa-light fa-handshake aud-i"></i>
+                        <h3>Strategic &amp; institutional partners</h3>
+                        <p>Government, NGOs and networks working on health equity, digital health and youth leadership.</p>
+                        <a href="#partner-form" class="rts-btn btn-secondary" data-prefill="partner_type=Strategic or institutional partner">Start a conversation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="imara-form-area soft" id="partner-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-card">
+                        <div class="form-card-head">
+                            <div class="eyebrow">Partnership application</div>
+                            <h2>Work With Imara</h2>
+                            <p>Tell us about your organisation and how you would like to work together.</p>
+                        </div>
+                        <div class="notice danger form-alert" role="alert" tabindex="-1"><i class="fa-solid fa-circle-exclamation"></i><p>Please check the highlighted fields.</p></div>
+                        <form class="imara-form" data-imara-form="partner" action="api/submit.php?type=partner" method="post" novalidate>
+                            <div class="hp-field" aria-hidden="true"><label for="p-website-hp">Leave empty</label><input type="text" id="p-website-hp" name="website" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="started_at" value=""><input type="hidden" name="client_token" value="">
+                            <div class="form-grid">
+                                <div class="field full"><label class="lbl" for="p-type">Type of partnership <span class="req">*</span></label><select id="p-type" name="partner_type" required>{{select:partner_types|Choose one}}</select><div class="err">Please choose one.</div></div>
+                                <div class="field"><label class="lbl" for="p-org">Organisation <span class="req">*</span></label><input type="text" id="p-org" name="org_name" maxlength="150" required autocomplete="organization"><div class="err">Please enter your organisation.</div></div>
+                                <div class="field"><label class="lbl" for="p-country">Country / city</label><input type="text" id="p-country" name="country" maxlength="80"></div>
+                                <div class="field"><label class="lbl" for="p-name">Contact person <span class="req">*</span></label><input type="text" id="p-name" name="contact_name" maxlength="120" required autocomplete="name"><div class="err">Please enter a contact name.</div></div>
+                                <div class="field"><label class="lbl" for="p-title">Job title</label><input type="text" id="p-title" name="role_title" maxlength="100" autocomplete="organization-title"></div>
+                                <div class="field"><label class="lbl" for="p-email">Email <span class="req">*</span></label><input type="email" id="p-email" name="email" required autocomplete="email"><div class="err">Please enter a valid email.</div></div>
+                                <div class="field"><label class="lbl" for="p-phone">Phone</label><div class="phone-group"><select name="phone_code" aria-label="Country code">{{phonecodes}}</select><input type="tel" id="p-phone" name="phone" inputmode="tel"></div><div class="err">Please enter a valid phone number.</div></div>
+                                <div class="field full"><label class="lbl" for="p-web">Website</label><input type="text" id="p-web" name="website_url" maxlength="150" placeholder="https://"></div>
+                                <div class="field full"><label class="lbl" for="p-msg">How would you like to work with Imara? <span class="req">*</span></label><textarea id="p-msg" name="message" maxlength="2000" required></textarea><div class="err">Please tell us a little about your idea.</div></div>
+                                <label class="consent-box required-box full field" for="p-consent"><input type="checkbox" id="p-consent" name="consent" value="1" required><span>I agree that Imara may contact me about this partnership, as explained in the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>. <span class="req" style="color:#B42318">*</span></span></label>
+                            </div>
+                            <div class="form-nav"><span></span><button type="submit" class="rts-btn btn-primary">Send application</button></div>
+                        </form>
+                        <div class="confirm-card" data-success-for="partner" hidden tabindex="-1">
+                            <div class="tick"><i class="fa-solid fa-check"></i></div>
+                            <p class="apwoyo">Apwoyo matek!</p>
+                            <h2>Thank you, <span data-fill="first_name"></span>.</h2>
+                            <div class="ref-box"><small>Your reference</small><strong data-fill="reference"></strong></div>
+                            <p>Our team will review your application and reply by email.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="side-info">
+                        <div class="banner-shape-area"><span class="shape"></span><span class="shape"></span><span class="shape"></span></div>
+                        <h3>Why partner with Imara?</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-users"></i><span>1,000+ patients reached through camps in Gulu, Kitgum and Lira</span></li>
+                            <li><i class="fa-solid fa-route"></i><span>A trackable patient-to-care navigation system</span></li>
+                            <li><i class="fa-solid fa-user-graduate"></i><span>1,000+ young people engaged in health advocacy</span></li>
+                            <li><i class="fa-solid fa-file-invoice"></i><span>Camp reports and budgets shared with partners</span></li>
+                        </ul>
+                        <p style="margin-top:24px">Prefer email? Write to <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>

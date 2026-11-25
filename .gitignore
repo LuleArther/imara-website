@@ -1,0 +1,7 @@
+app/config.local.php
+data/*
+!data/.htaccess
+dev/php.ini
+photo-library/
+__pycache__/
+*.log

@@ -1,0 +1,120 @@
+{
+  "_comment": "Single source of truth for dropdown options. Used by tools/build.py (to write the HTML forms) and by the PHP API (to validate submissions). After editing, run: python tools/build.py",
+
+  "gender": {
+    "default": "Prefer not to say",
+    "options": ["Female", "Male", "Prefer not to say"]
+  },
+
+  "locations": {
+    "default": "Pece",
+    "groups": [
+      { "label": "Gulu City divisions", "options": ["Pece", "Laroo", "Bardege", "Layibi"] },
+      { "label": "Other districts", "options": ["Gulu District", "Amuru", "Omoro", "Nwoya", "Kitgum", "Pader", "Agago", "Lamwo", "Lira", "Kampala"] },
+      { "label": "Somewhere else", "options": ["Other"] }
+    ]
+  },
+
+  "insurance": {
+    "default": "No",
+    "options": ["Yes — Private", "Yes — Community Health Scheme", "No", "Don't know"]
+  },
+
+  "services": {
+    "default": "General Doctor",
+    "options": [
+      "General Doctor",
+      "Paediatrician (Child Health)",
+      "Gynaecologist / Women's Health",
+      "Dentist",
+      "Eye Doctor",
+      "Mental Health Support",
+      "Surgery Consultation",
+      "Laboratory Test",
+      "Medical Scan",
+      "Malaria Testing",
+      "HIV Testing",
+      "Pharmacy",
+      "Other"
+    ]
+  },
+
+  "duration": {
+    "default": "1–3 days",
+    "options": ["Today", "1–3 days", "1 week", "1 month", "Long time"]
+  },
+
+  "urgency": {
+    "default": "",
+    "options": ["Urgent — need help today", "This week", "This month", "Just seeking advice"]
+  },
+
+  "assistance": {
+    "default": "I am not sure — advise me",
+    "options": [
+      "In-person hospital visit in Gulu",
+      "Phone call with a healthcare professional",
+      "WhatsApp communication",
+      "Visit by a Village Health Team member",
+      "I am not sure — advise me"
+    ]
+  },
+
+  "facilities": {
+    "default": "Any — advise me",
+    "options": [
+      "Gulu Regional Referral Hospital",
+      "St. Mary's Hospital Lacor",
+      "Gulu Independent Hospital",
+      "Any — advise me",
+      "Private clinic"
+    ]
+  },
+
+  "heard": {
+    "default": "Medical camp",
+    "options": ["Medical camp", "TikTok", "Instagram", "Friend", "Church", "School", "Gulu University", "Village Health Team", "Other"]
+  },
+
+  "yes_no": {
+    "default": "",
+    "options": ["Yes", "No"]
+  },
+
+  "guardian_relationship": {
+    "default": "",
+    "options": ["Mother", "Father", "Grandparent", "Aunt / Uncle", "Older sibling", "Legal guardian", "Other"]
+  },
+
+  "phone_countries": {
+    "default": "+256",
+    "options": [
+      { "code": "+256", "label": "UG +256" },
+      { "code": "+254", "label": "KE +254" },
+      { "code": "+211", "label": "SS +211" },
+      { "code": "+250", "label": "RW +250" },
+      { "code": "+255", "label": "TZ +255" }
+    ]
+  },
+
+  "volunteer_roles": {
+    "default": "",
+    "options": ["Doctor", "Nurse / Midwife", "Clinical Officer", "Medical / Health Student", "Village Health Team (VHT) member", "Youth Advocate", "Pharmacist", "Laboratory Technician", "Counsellor / Mental Health", "Media / Communications", "Other"]
+  },
+
+  "partner_types": {
+    "default": "",
+    "options": ["Healthcare institution (referral network)", "Academic or research partner", "Donor or development partner", "Strategic or institutional partner", "Other"]
+  },
+
+  "camp_services": {
+    "options": ["General consultations", "Malaria testing", "HIV testing & counselling", "Blood pressure & diabetes screening", "Maternal & child health", "Eye checks", "Dental checks", "Mental health support", "Health education talk", "Referrals to specialists"]
+  },
+
+  "donation_purposes": {
+    "default": "General support",
+    "options": ["Free medical camps", "Health outreach", "Youth health advocacy", "General support"]
+  },
+
+  "donation_amounts": [10000, 25000, 50000, 100000]
+}

@@ -1,0 +1,113 @@
+<!--META {"title": "Donate — Support Our Mission | Imara Health Initiative AFRIKA", "description": "Help us take healthcare closer. Your contribution helps Imara reach underserved communities across Northern Uganda with free medical services and health education.", "nav": "involved", "scripts": ["assets/js/forms.js", "assets/js/donate.js"]} -->
+
+    {{breadcrumb:1241|Support Our Mission|Donate}}
+
+    <section class="imara-form-area soft" id="donate-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-card">
+                        <div class="form-card-head">
+                            <div class="eyebrow">Support our mission</div>
+                            <h2>Help Us Take Healthcare Closer.</h2>
+                            <p>Your contribution helps us reach underserved communities across Northern Uganda with free medical services and health education.</p>
+                        </div>
+                        <div class="notice danger form-alert" role="alert" tabindex="-1"><i class="fa-solid fa-circle-exclamation"></i><p>Please check the highlighted fields.</p></div>
+
+                        <form class="imara-form" data-imara-form="donation" action="api/submit.php?type=donation" method="post" novalidate>
+                            <div class="hp-field" aria-hidden="true"><label for="d-website">Leave empty</label><input type="text" id="d-website" name="website" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="started_at" value=""><input type="hidden" name="client_token" value="">
+
+                            <fieldset>
+                                <legend><span class="sec-letter">1</span> Choose an amount</legend>
+                                <div class="field" id="amount-field">
+                                    <div class="amount-grid" role="radiogroup" aria-label="Amount in Ugandan shillings">
+                                        <label class="choice-pill"><input type="radio" name="amount" value="10000"><span>UGX 10,000</span></label>
+                                        <label class="choice-pill"><input type="radio" name="amount" value="25000" checked><span>UGX 25,000</span></label>
+                                        <label class="choice-pill"><input type="radio" name="amount" value="50000"><span>UGX 50,000</span></label>
+                                        <label class="choice-pill"><input type="radio" name="amount" value="100000"><span>UGX 100,000</span></label>
+                                    </div>
+                                    <div style="margin-top:12px">
+                                        <label class="choice-pill" style="display:block"><input type="radio" name="amount" value="custom" id="amount-custom-radio"><span style="width:100%">Another amount</span></label>
+                                    </div>
+                                </div>
+                                <div class="field" id="custom-amount-wrap" hidden style="margin-top:14px">
+                                    <label class="lbl" for="amount_custom">Amount in UGX <span class="req">*</span></label>
+                                    <input type="number" id="amount_custom" name="amount_custom" min="1000" step="500" inputmode="numeric" placeholder="e.g. 15000">
+                                    <div class="err">Please enter an amount of at least UGX 1,000.</div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><span class="sec-letter">2</span> Where should it go?</legend>
+                                <div class="field"><div class="choice-group" role="radiogroup" aria-label="Purpose">{{radios:donation_purposes:purpose}}</div></div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><span class="sec-letter">3</span> About you</legend>
+                                <div class="form-grid">
+                                    <label class="consent-box full" for="d-anon"><input type="checkbox" id="d-anon" name="anonymous" value="1"><span>Give anonymously &mdash; don't show or use my name</span></label>
+                                    <div class="field" id="donor-name-wrap"><label class="lbl" for="d-name">Your name <span class="req">*</span></label><input type="text" id="d-name" name="donor_name" maxlength="120" autocomplete="name" required><div class="err">Please enter your name, or choose to give anonymously.</div></div>
+                                    <div class="field"><label class="lbl" for="d-email">Email <span class="opt">(for your thank-you and receipt)</span></label><input type="email" id="d-email" name="email" autocomplete="email"><div class="err">Please enter a valid email.</div></div>
+                                    <div class="field"><label class="lbl" for="d-phone">Phone <span class="opt">(optional)</span></label><div class="phone-group"><select name="phone_code" aria-label="Country code">{{phonecodes}}</select><input type="tel" id="d-phone" name="phone" inputmode="tel"></div><div class="err">Please enter a valid phone number.</div></div>
+                                    <div class="field"><label class="lbl" for="d-method">Preferred way to give <span class="req">*</span></label><select id="d-method" name="method" required><option value="MTN Mobile Money">MTN Mobile Money</option><option value="Airtel Money">Airtel Money</option><option value="PayPal">PayPal (international)</option><option value="Bank transfer">Bank transfer</option><option value="Not sure yet" selected>Not sure yet</option></select></div>
+                                    <div class="field full"><label class="lbl" for="d-msg">Message <span class="opt">(optional)</span></label><textarea id="d-msg" name="message" maxlength="500" style="height:100px"></textarea></div>
+                                </div>
+                                <p class="hint" style="margin-top:14px"><i class="fa-solid fa-circle-info"></i> Please give an email or a phone number so we can send you verified payment details.</p>
+                            </fieldset>
+
+                            <div class="notice privacy"><i class="fa-solid fa-shield-halved"></i><p><strong>No money is taken on this page.</strong> Your pledge is recorded and our team sends you verified payment details. Only send money to accounts confirmed by Imara from {{EMAIL}}.</p></div>
+                            <div class="form-nav"><span></span><button type="submit" class="rts-btn btn-primary btn-submit-care"><i class="fa-solid fa-heart"></i>&nbsp; Pledge my gift</button></div>
+                        </form>
+
+                        <div class="confirm-card" data-success-for="donation" hidden tabindex="-1">
+                            <div class="tick"><i class="fa-solid fa-heart"></i></div>
+                            <p class="apwoyo">Apwoyo matek!</p>
+                            <h2>Thank you for supporting Imara.</h2>
+                            <div class="ref-box"><small>Pledge reference</small><strong data-fill="reference"></strong></div>
+                            <p>A member of our team will contact you shortly with verified payment details. If you gave an email address, we have sent you a thank-you note.</p>
+                            <p class="sign">Strong Communities. Strong Health. Strong Afrika. &mdash; Team Imara Gulu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="side-info">
+                        <div class="banner-shape-area"><span class="shape"></span><span class="shape"></span><span class="shape"></span></div>
+                        <h3>Your gift supports</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-tents"></i><span><strong>Free medical camps</strong> &mdash; doctors, tests and medicines for people who can't pay</span></li>
+                            <li><i class="fa-solid fa-people-group"></i><span><strong>Health outreach</strong> &mdash; reaching remote villages</span></li>
+                            <li><i class="fa-solid fa-bullhorn"></i><span><strong>Youth health advocacy</strong> &mdash; podcasts and policy work</span></li>
+                            <li><i class="fa-solid fa-hand-holding-heart"></i><span><strong>General support</strong> &mdash; wherever the need is greatest</span></li>
+                        </ul>
+                        <p style="margin-top:24px">We publish camp reports and budgets to our partners. Ask us at <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- payment options -->
+    <section class="rts-section-gap bg-white">
+        <div class="container">
+            <div class="section-head">
+                <div class="title-img"><img src="assets/images/ui/title-shape.png" alt=""></div>
+                <h2 class="title-banner">Ways to Give</h2>
+                <p class="desc">Account details will appear here once each payment channel has been set up, tested and verified.</p>
+            </div>
+            <div class="row gap-y-30">
+                <div class="col-lg-4 col-md-6"><div class="pay-card"><div class="pay-logo"><i class="fa-solid fa-mobile-screen-button"></i></div><h4>MTN Mobile Money</h4><p>Account name: Imara Health Initiative AFRIKA</p><p>Number: shared by our team after you pledge</p><span class="status">Being verified</span></div></div>
+                <div class="col-lg-4 col-md-6"><div class="pay-card"><div class="pay-logo"><i class="fa-solid fa-mobile-screen"></i></div><h4>Airtel Money</h4><p>Account name: Imara Health Initiative AFRIKA</p><p>Number: shared by our team after you pledge</p><span class="status">Being verified</span></div></div>
+                <div class="col-lg-4 col-md-6"><div class="pay-card"><div class="pay-logo"><i class="fa-brands fa-paypal"></i></div><h4>PayPal (international)</h4><p>For supporters outside Uganda</p><p>Details shared by our team after you pledge</p><span class="status">Being verified</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="rts-cta-area">
+        <div class="container">
+            <div class="cta-inner">
+                <h2 class="title"><span class="first-title">Want to give your time instead?</span><span class="second-title"> Volunteer!</span></h2>
+                <a href="volunteer.html" class="rts-btn btn-primary"><i class="fa-solid fa-hands-holding-heart"></i> Volunteer</a>
+            </div>
+        </div>
+    </div>

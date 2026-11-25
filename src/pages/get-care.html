@@ -1,0 +1,293 @@
+<!--META {"title": "Get Care — Find a Doctor | Imara Health Bridge Gulu", "description": "Tell us what you need and our team will link you to the right doctor, specialist, hospital or lab in Northern Uganda. Free patient navigation service.", "nav": "care", "body_class": "page-get-care", "scripts": ["assets/js/forms.js", "assets/js/get-care.js"]} -->
+
+    {{breadcrumb:1375|Imara Health Bridge &middot; Gulu|Get Care}}
+
+    <section class="imara-form-area soft" id="care-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-card" id="care-card">
+
+                        <div class="form-card-head">
+                            <div class="eyebrow">Imara Health Bridge &middot; Gulu &bull; Northern Uganda</div>
+                            <h2>Find a Doctor. Get Care.</h2>
+                            <p>We help connect you to the right healthcare provider. Tell us what you need and our team will guide you.</p>
+                            <span class="badge-free"><i class="fa-solid fa-hand-holding-medical"></i> Free patient navigation service</span>
+                        </div>
+
+                        <ol class="form-steps" aria-label="Form progress" hidden>
+                            <li class="active" data-step-ind="1"><span class="step-label">About you</span></li>
+                            <li data-step-ind="2"><span class="step-label">Your need</span></li>
+                            <li data-step-ind="3"><span class="step-label">Preference &amp; consent</span></li>
+                        </ol>
+
+                        <div class="notice danger form-alert" id="form-alert" role="alert" tabindex="-1">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <p id="form-alert-text">Please check the highlighted fields.</p>
+                        </div>
+
+                        <form id="care-request" class="imara-form" action="api/patient-request.php" method="post" novalidate>
+                            <p class="hint" style="margin:0 0 26px"><span class="req" style="color:#B42318">*</span> Fields marked with a star are required.</p>
+
+                            <!-- anti-spam: humans never see or fill this -->
+                            <div class="hp-field" aria-hidden="true">
+                                <label for="website">Leave this empty</label>
+                                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+                            <input type="hidden" name="started_at" id="started_at" value="">
+                            <input type="hidden" name="client_token" id="client_token" value="">
+
+                            <!-- ============ STEP 1 ============ -->
+                            <div class="form-step" data-step="1">
+                                <fieldset>
+                                    <legend><span class="sec-letter">A</span> About you</legend>
+                                    <p class="legend-note">If you are filling this in for someone else, enter the patient's details.</p>
+                                    <div class="form-grid">
+                                        <div class="field full">
+                                            <label class="lbl" for="full_name">Full name <span class="req">*</span></label>
+                                            <input type="text" id="full_name" name="full_name" autocomplete="name" maxlength="120" required>
+                                            <div class="err">Please enter the patient's full name.</div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="lbl" for="age">Age <span class="req">*</span></label>
+                                            <input type="number" id="age" name="age" min="0" max="120" inputmode="numeric" required>
+                                            <div class="err">Please enter an age between 0 and 120.</div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="lbl" for="gender">Gender</label>
+                                            <select id="gender" name="gender">
+                                                {{select:gender}}
+                                            </select>
+                                        </div>
+
+                                        <!-- guardian (shown for children under 18) -->
+                                        <div class="full reveal-box" id="guardian-box" hidden>
+                                            <h4><i class="fa-solid fa-children text-primary-imara"></i> Parent or guardian</h4>
+                                            <p>The patient is under 18, so we need a parent or guardian we can talk to.</p>
+                                            <div class="form-grid">
+                                                <div class="field">
+                                                    <label class="lbl" for="guardian_name">Parent / guardian name <span class="req">*</span></label>
+                                                    <input type="text" id="guardian_name" name="guardian_name" maxlength="120" data-guardian>
+                                                    <div class="err">Please enter the parent or guardian's name.</div>
+                                                </div>
+                                                <div class="field">
+                                                    <label class="lbl" for="guardian_relationship">Relationship to the child <span class="req">*</span></label>
+                                                    <select id="guardian_relationship" name="guardian_relationship" data-guardian>
+                                                        {{select:guardian_relationship|Choose one}}
+                                                    </select>
+                                                    <div class="err">Please choose the relationship.</div>
+                                                </div>
+                                                <div class="field full">
+                                                    <label class="lbl" for="guardian_phone">Parent / guardian phone <span class="req">*</span></label>
+                                                    <div class="phone-group">
+                                                        <select name="guardian_phone_code" aria-label="Guardian country code">
+                                                            {{phonecodes}}
+                                                        </select>
+                                                        <input type="tel" id="guardian_phone" name="guardian_phone" inputmode="tel" placeholder="7XX XXX XXX" maxlength="16" data-guardian>
+                                                    </div>
+                                                    <div class="err">Please enter a valid phone number for the parent or guardian.</div>
+                                                </div>
+                                                <label class="consent-box required-box full field" for="guardian_consent">
+                                                    <input type="checkbox" id="guardian_consent" name="guardian_consent" value="1" data-guardian>
+                                                    <span>I am the parent or legal guardian of this child (or I have their permission), and I agree that Imara may contact me and share the child's information with a healthcare provider to arrange care. <span class="req" style="color:#B42318">*</span></span>
+                                                </label>
+                                                <div class="err" id="guardian_consent_err">A parent or guardian must agree before we can help a child.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <label class="lbl" for="location">Division / District <span class="req">*</span></label>
+                                            <select id="location" name="location" required>
+                                                {{select:locations}}
+                                            </select>
+                                            <div class="err">Please choose where you are.</div>
+                                        </div>
+                                        <div class="field" id="location-other-wrap" hidden>
+                                            <label class="lbl" for="location_other">Which place? <span class="req">*</span></label>
+                                            <input type="text" id="location_other" name="location_other" maxlength="80" placeholder="Village, sub-county or district">
+                                            <div class="err">Please tell us where you are.</div>
+                                        </div>
+                                        <div class="field full">
+                                            <label class="lbl" for="phone">Phone / WhatsApp number <span class="req">*</span></label>
+                                            <div class="phone-group">
+                                                <select name="phone_code" id="phone_code" aria-label="Country code">
+                                                    {{phonecodes}}
+                                                </select>
+                                                <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel-national" placeholder="7XX XXX XXX" maxlength="16" required>
+                                            </div>
+                                            <p class="hint"><i class="fa-solid fa-phone"></i> We will call or WhatsApp you on this number.</p>
+                                            <div class="err">Please enter a valid phone number, for example 0772 123 456.</div>
+                                        </div>
+                                        <div class="field full">
+                                            <label class="lbl" for="insurance">Do you have health insurance or a community health scheme?</label>
+                                            <select id="insurance" name="insurance">
+                                                {{select:insurance}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <!-- ============ STEP 2 ============ -->
+                            <div class="form-step" data-step="2">
+                                <fieldset>
+                                    <legend><span class="sec-letter">B</span> What do you need?</legend>
+                                    <p class="legend-note">Tell us the kind of help you are looking for.</p>
+                                    <div class="form-grid">
+                                        <div class="field">
+                                            <label class="lbl" for="service">Healthcare service needed <span class="req">*</span></label>
+                                            <select id="service" name="service" required>
+                                                {{select:services}}
+                                            </select>
+                                            <div class="err">Please choose a service.</div>
+                                        </div>
+                                        <div class="field" id="service-other-wrap" hidden>
+                                            <label class="lbl" for="service_other">What service? <span class="req">*</span></label>
+                                            <input type="text" id="service_other" name="service_other" maxlength="80">
+                                            <div class="err">Please tell us the service you need.</div>
+                                        </div>
+                                        <div class="field full">
+                                            <label class="lbl" for="concern">Briefly describe your health concern <span class="req">*</span> <span class="counter-hint" id="concern-count">0 / 600</span></label>
+                                            <textarea id="concern" name="concern" maxlength="600" required placeholder="For example: fever and headache for three days"></textarea>
+                                            <p class="hint"><i class="fa-solid fa-shield-heart"></i> A short description is enough. Please do not include unnecessary personal or medical details &mdash; our team will ask for anything else they need.</p>
+                                            <div class="err">Please describe your concern in a few words.</div>
+                                        </div>
+                                        <div class="field full">
+                                            <label class="lbl" for="duration">How long have you had this problem?</label>
+                                            <select id="duration" name="duration">
+                                                {{select:duration}}
+                                            </select>
+                                        </div>
+                                        <div class="field full" id="urgency-field">
+                                            <span class="lbl" id="urgency-label">How soon do you need assistance? <span class="req">*</span></span>
+                                            <div class="choice-group" role="radiogroup" aria-labelledby="urgency-label">
+                                                {{radios:urgency:urgency:required}}
+                                            </div>
+                                            <div class="err">Please choose how soon you need help.</div>
+                                        </div>
+                                        <div class="full notice danger" id="urgent-warning" hidden role="alert">
+                                            <i class="fa-solid fa-truck-medical"></i>
+                                            <p><strong>If this is an emergency, do not wait for Imara.</strong> Go to the nearest health facility now, or ask someone to take you. Signs of an emergency include difficulty breathing, chest pain, heavy bleeding, fits (convulsions), fainting, a very high fever in a young child, or severe pain. We will still flag your request for a team member to review immediately.</p>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <!-- ============ STEP 3 ============ -->
+                            <div class="form-step" data-step="3">
+                                <fieldset>
+                                    <legend><span class="sec-letter">C</span> Your preference</legend>
+                                    <p class="legend-note">This helps us plan. If you are unsure, leave the suggested answer and our team will advise you.</p>
+                                    <div class="form-grid">
+                                        <div class="field full">
+                                            <label class="lbl" for="assistance">How would you prefer to receive assistance?</label>
+                                            <select id="assistance" name="assistance">
+                                                {{select:assistance}}
+                                            </select>
+                                        </div>
+                                        <div class="field full">
+                                            <label class="lbl" for="facility">Preferred healthcare facility</label>
+                                            <select id="facility" name="facility">
+                                                {{select:facilities}}
+                                            </select>
+                                            <p class="hint"><i class="fa-solid fa-circle-info"></i> Our team may recommend a different facility that is better suited to your need.</p>
+                                        </div>
+                                        <div class="field full">
+                                            <span class="lbl" id="prev-label">Have you previously sought care for this problem?</span>
+                                            <div class="choice-group" role="radiogroup" aria-labelledby="prev-label">
+                                                {{radios:yes_no:previous_care}}
+                                            </div>
+                                        </div>
+                                        <div class="field full" id="previous-details-wrap" hidden>
+                                            <label class="lbl" for="previous_details">Where did you go, and what were you told? <span class="opt">(optional)</span></label>
+                                            <textarea id="previous_details" name="previous_details" maxlength="400" style="height:100px"></textarea>
+                                        </div>
+                                        <div class="field full">
+                                            <label class="lbl" for="heard">How did you hear about Imara?</label>
+                                            <select id="heard" name="heard">
+                                                {{select:heard}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend><span class="sec-letter">D</span> Consent &amp; privacy</legend>
+                                    <p class="legend-note">&nbsp;</p>
+                                    <div class="field" id="consent-field">
+                                        <label class="consent-box required-box" for="consent_care">
+                                            <input type="checkbox" id="consent_care" name="consent_care" value="1" required>
+                                            <span>I agree that Imara Health Initiative AFRIKA may contact me and share my information with a healthcare provider to arrange my care, as explained in the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>. <span class="req" style="color:#B42318">*</span></span>
+                                        </label>
+                                        <div class="err" style="margin:-6px 0 14px">We need your consent before we can link you to care.</div>
+                                    </div>
+                                    <label class="consent-box" for="consent_whatsapp">
+                                        <input type="checkbox" id="consent_whatsapp" name="consent_whatsapp" value="1">
+                                        <span>I would also like to receive optional health information and follow-up messages on WhatsApp. <em>(optional)</em></span>
+                                    </label>
+                                    <div class="notice privacy">
+                                        <i class="fa-solid fa-lock"></i>
+                                        <p>Your information will be handled confidentially and shared only for the purposes you authorise, subject to applicable legal requirements. You may decline optional health updates. <a href="privacy.html" target="_blank" rel="noopener">Read our privacy policy</a>.</p>
+                                    </div>
+                                </fieldset>
+
+                                <div class="notice danger">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <p><strong>Imara is not an emergency service.</strong> If you have severe symptoms, seek emergency medical attention immediately at the nearest appropriate health facility. Do not wait for a response to this form.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-nav">
+                                <button type="button" class="rts-btn btn-secondary" id="btn-back" hidden><i class="fa-light fa-arrow-left"></i>&nbsp; Back</button>
+                                <button type="button" class="rts-btn btn-primary" id="btn-next" hidden>Next &nbsp;<i class="fa-light fa-arrow-right"></i></button>
+                                <button type="submit" class="rts-btn btn-primary btn-submit-care" id="btn-submit">Submit &mdash; Link Me To Care</button>
+                            </div>
+                        </form>
+
+                        <!-- confirmation (filled in after a successful submit) -->
+                        <div class="confirm-card" id="care-confirm" hidden tabindex="-1" aria-live="polite">
+                            <div class="tick"><i class="fa-solid fa-check"></i></div>
+                            <p class="eyebrow" style="color:#1E7B4C;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px">Request received successfully</p>
+                            <p class="apwoyo">Apwoyo matek!</p>
+                            <h2>Thank you, <span data-confirm="name"></span>.</h2>
+                            <p>Your healthcare assistance request has been received.</p>
+                            <div class="ref-box"><small>Your reference number</small><strong data-confirm="reference"></strong></div>
+                            <p>An Imara team member will contact you within 24 hours during working days to guide you through the next steps.</p>
+                            <p class="hint" data-confirm="duplicate" hidden><i class="fa-solid fa-circle-info"></i> We had already received this request, so we have not created a second one.</p>
+                            <div class="notice danger">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <p><strong>Need urgent medical attention?</strong> Do not wait for Imara to respond. Visit the nearest appropriate health facility immediately or seek emergency assistance.</p>
+                            </div>
+                            <p class="sign">Strong Communities. Strong Health. Strong Afrika. &mdash; Team Imara Gulu</p>
+                            <div class="confirm-actions">
+                                <a class="rts-btn btn-primary" data-confirm="whatsapp" href="https://wa.me/{{WHATSAPP}}"><i class="fa-brands fa-whatsapp"></i>&nbsp; Message us on WhatsApp</a>
+                                <a class="rts-btn btn-secondary" href="index.html">Back to home</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="side-info">
+                        <div class="banner-shape-area"><span class="shape"></span><span class="shape"></span><span class="shape"></span></div>
+                        <h3>How it works</h3>
+                        <p>Imara is a navigation and referral service. We do not diagnose or treat &mdash; we connect you to people who can.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-pen-to-square"></i><span><strong>1. Tell us</strong> what you need using this form.</span></li>
+                            <li><i class="fa-solid fa-user-doctor"></i><span><strong>2. We review</strong> it. A qualified health professional checks every referral.</span></li>
+                            <li><i class="fa-solid fa-phone"></i><span><strong>3. We call</strong> you within 24 hours on working days.</span></li>
+                            <li><i class="fa-solid fa-hospital"></i><span><strong>4. We link you</strong> to a doctor, specialist, hospital or lab.</span></li>
+                            <li><i class="fa-solid fa-heart-pulse"></i><span><strong>5. We follow up</strong> to make sure you got the care.</span></li>
+                        </ul>
+                        <div class="banner-shape-area" style="margin-top:30px"><span class="shape"></span><span class="shape"></span><span class="shape"></span></div>
+                        <h3 style="font-size:24px">Prefer to talk?</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-phone"></i><a href="tel:{{PHONE_TEL}}">{{PHONE}}</a></li>
+                            <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/{{WHATSAPP}}">WhatsApp us</a></li>
+                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>

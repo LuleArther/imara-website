@@ -1,0 +1,165 @@
+    <!-- header area start -->
+    <header class="header-one header--sticky">
+        <div class="header-one-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header-main-wrapper">
+                        <div class="logo-area">
+                            <a href="index.html" class="logo imara-logo" aria-label="Imara Health Initiative AFRIKA — home">
+                                {{logo}}
+                            </a>
+                        </div>
+                        <div class="menu-area" id="menu-btn">
+                            <a href="#" class="nav-menu-link menu-button" aria-label="Open menu">
+                                <span class="dot1"></span>
+                                <span class="dot2"></span>
+                                <span class="dot3"></span>
+                                <span class="dot4"></span>
+                            </a>
+                        </div>
+                        <div class="rts-header-mid d-none d-lg-block">
+                            <!-- nav area start -->
+                            <div class="main-nav-desk nav-area">
+                                <nav aria-label="Main">
+                                    <ul>
+                                        <li class="{{active:home}}">
+                                            <a class="nav-link" href="index.html">Home</a>
+                                        </li>
+                                        <li class="has-droupdown pages {{active:about}}">
+                                            <a class="nav-link" href="about.html">About</a>
+                                            <ul class="submenu">
+                                                <li><a href="about.html">Who We Are</a></li>
+                                                <li><a href="impact.html">Our Impact</a></li>
+                                                <li><a href="partner.html">Partner With Us</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-droupdown pages {{active:care}}">
+                                            <a class="nav-link" href="get-care.html">Get Care</a>
+                                            <ul class="submenu">
+                                                <li><a href="get-care.html">Find a Doctor</a></li>
+                                                <li><a href="specialists.html">Find a Specialist</a></li>
+                                                <li><a href="hospitals.html">Find a Hospital</a></li>
+                                                <li><a href="request-camp.html">Request a Medical Camp</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-droupdown pages {{active:involved}}">
+                                            <a class="nav-link" href="volunteer.html">Get Involved</a>
+                                            <ul class="submenu">
+                                                <li><a href="volunteer.html">Volunteer</a></li>
+                                                <li><a href="partner.html">Partnership Portal</a></li>
+                                                <li><a href="donate.html">Donate</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="{{active:resources}}">
+                                            <a class="nav-link" href="resources.html">Resources</a>
+                                        </li>
+                                        <li class="{{active:contact}}">
+                                            <a class="nav-link" href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- nav-area end -->
+                        </div>
+                        <!-- header right start -->
+                        <div class="rts-header-right">
+                            <div class="bottom">
+                                <div class="query-list">
+                                    <span class="sub-text">Free Patient Line</span>
+                                    <a href="tel:{{PHONE_TEL}}"><span class="text-heading">{{PHONE}}</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- header right end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header area end -->
+
+    <!-- side bar -->
+    <div id="side-bar" class="side-bar header-one">
+        <div class="inner">
+            <button class="close-icon-menu" aria-label="Close menu"><i class="far fa-times"></i></button>
+            <!-- inner menu area desktop start -->
+            <div class="inner-main-wrapper-desk d-none d-lg-block">
+                <div class="thumbnail">
+                    <a href="index.html" class="imara-logo imara-logo--side">{{logo}}</a>
+                </div>
+                <div class="banner-shape-area">
+                    <span class="shape"></span>
+                    <span class="shape"></span>
+                    <span class="shape"></span>
+                </div>
+                <div class="inner-content">
+                    <ul class="feature-list">
+                        <li class="query-list">
+                            <span class="sub-text">{{ADDRESS}}</span>
+                            <a class="phone" href="tel:{{PHONE_TEL}}">{{PHONE}}</a>
+                            <a class="email" href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+                        </li>
+                        <li class="query-list two">
+                            <p class="time">We reply within 24 hours on working days</p>
+                            <p class="time side-emergency"><i class="fa-solid fa-triangle-exclamation"></i> Not an emergency service</p>
+                        </li>
+                    </ul>
+                    <div class="footer">
+                        <ul class="social-area">
+                            <li><a href="https://wa.me/{{WHATSAPP}}" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                            <li><a href="tel:{{PHONE_TEL}}" aria-label="Call"><i class="fa-solid fa-phone"></i></a></li>
+                            <li><a href="mailto:{{EMAIL}}" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu area start -->
+            <div class="mobile-menu d-block d-lg-none">
+                <nav class="nav-main mainmenu-nav mt--30" aria-label="Mobile">
+                    <ul class="mainmenu" id="mobile-menu-active">
+                        <li><a href="index.html" class="main no-sub">Home</a></li>
+                        <li class="has-droupdown">
+                            <a href="#" class="main">About</a>
+                            <ul class="submenu">
+                                <li><a class="mobile-menu-link" href="about.html">Who We Are</a></li>
+                                <li><a class="mobile-menu-link" href="impact.html">Our Impact</a></li>
+                                <li><a class="mobile-menu-link" href="partner.html">Partner With Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-droupdown">
+                            <a href="#" class="main">Get Care</a>
+                            <ul class="submenu">
+                                <li><a class="mobile-menu-link" href="get-care.html">Find a Doctor</a></li>
+                                <li><a class="mobile-menu-link" href="specialists.html">Find a Specialist</a></li>
+                                <li><a class="mobile-menu-link" href="hospitals.html">Find a Hospital</a></li>
+                                <li><a class="mobile-menu-link" href="request-camp.html">Request a Medical Camp</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-droupdown">
+                            <a href="#" class="main">Get Involved</a>
+                            <ul class="submenu">
+                                <li><a class="mobile-menu-link" href="volunteer.html">Volunteer</a></li>
+                                <li><a class="mobile-menu-link" href="partner.html">Partnership Portal</a></li>
+                                <li><a class="mobile-menu-link" href="donate.html">Donate</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="resources.html" class="main no-sub">Resources</a></li>
+                        <li><a href="contact.html" class="main no-sub">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <a href="get-care.html" class="rts-btn btn-primary mobile-care-btn">Get Care Now</a>
+
+                <div class="social-wrapper-one">
+                    <ul>
+                        <li><a href="https://wa.me/{{WHATSAPP}}" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                        <li><a href="tel:{{PHONE_TEL}}" aria-label="Call"><i class="fa-solid fa-phone"></i></a></li>
+                        <li><a href="mailto:{{EMAIL}}" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- side bar end -->
+
+    <main id="main">

@@ -1,0 +1,46 @@
+<!--META {"title": "Find a Hospital — Imara Health Bridge Gulu", "description": "Hospitals and clinics in and around Gulu City that Imara can help you reach. Tell us what you need and we will link you to the right facility.", "nav": "care", "scripts": ["assets/js/directory.js"]} -->
+
+    {{breadcrumb:1253|Hospitals &amp; Clinics|Find a Hospital}}
+
+    <section class="rts-section-gap bg-white" data-directory="facility">
+        <div class="container">
+            <div class="section-head">
+                <div class="title-img"><img src="assets/images/ui/title-shape.png" alt=""></div>
+                <h2 class="title-banner">Where We Can Link You</h2>
+                <p class="desc">Not sure which hospital is right for you? You don't need to decide &mdash; tell us what you need and our team will advise you.</p>
+            </div>
+
+            <div class="dir-toolbar">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <label for="dir-search" class="visually-hidden">Search hospitals</label>
+                    <input type="search" id="dir-search" data-dir-search placeholder="Search by name or place">
+                </div>
+                <a href="get-care.html" class="rts-btn btn-primary">Help me choose</a>
+            </div>
+
+            <div class="row gap-y-30" data-dir-list>
+                <!-- shown if the live list cannot load -->
+                <div class="col-lg-4 col-md-6"><div class="dir-card"><div class="dir-icon"><i class="fa-light fa-hospital"></i></div><h3>Gulu Regional Referral Hospital</h3><div class="dir-meta">Public referral hospital</div><p>Government regional referral hospital serving the Acholi sub-region.</p><ul class="dir-facts"><li><i class="fa-solid fa-location-dot"></i><span>Gulu City</span></li></ul><a class="rts-btn btn-secondary" href="get-care.html?facility=Gulu%20Regional%20Referral%20Hospital#care-form">Ask Imara to link me</a></div></div>
+                <div class="col-lg-4 col-md-6"><div class="dir-card"><div class="dir-icon"><i class="fa-light fa-hospital"></i></div><h3>St. Mary's Hospital Lacor</h3><div class="dir-meta">Private not-for-profit hospital</div><p>Large missionary hospital with general and specialist services.</p><ul class="dir-facts"><li><i class="fa-solid fa-location-dot"></i><span>Gulu</span></li></ul><a class="rts-btn btn-secondary" href="get-care.html?facility=St.%20Mary's%20Hospital%20Lacor#care-form">Ask Imara to link me</a></div></div>
+                <div class="col-lg-4 col-md-6"><div class="dir-card"><div class="dir-icon"><i class="fa-light fa-hospital"></i></div><h3>Gulu Independent Hospital</h3><div class="dir-meta">Private hospital</div><p>Private hospital in Gulu City.</p><ul class="dir-facts"><li><i class="fa-solid fa-location-dot"></i><span>Gulu City</span></li></ul><a class="rts-btn btn-secondary" href="get-care.html?facility=Gulu%20Independent%20Hospital#care-form">Ask Imara to link me</a></div></div>
+            </div>
+            <div class="dir-empty" data-dir-empty hidden>
+                <p>No hospitals match your search. <a href="get-care.html">Ask Imara to help you choose.</a></p>
+            </div>
+
+            <div class="notice info" style="margin-top:40px">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>This list shows facilities Imara can help patients reach. It is not an endorsement, and services and costs can change &mdash; our team will confirm details with you. <strong>In an emergency, go to the nearest health facility immediately.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="rts-cta-area">
+        <div class="container">
+            <div class="cta-inner">
+                <h2 class="title"><span class="first-title">Are you a hospital or clinic?</span><span class="second-title"> Join our referral network!</span></h2>
+                <a href="partner.html?partner_type=Healthcare%20institution%20(referral%20network)#partner-form" class="rts-btn btn-primary"><i class="fa-solid fa-handshake"></i> Partner With Us</a>
+            </div>
+        </div>
+    </div>

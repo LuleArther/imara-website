@@ -1,0 +1,91 @@
+<!--META {"title": "Contact Imara — Gulu City, Northern Uganda", "description": "Call, WhatsApp or email Imara Health Initiative AFRIKA in Gulu City. Phone +256 777 106608 · hello@imaraafrika.org", "nav": "contact", "scripts": ["assets/js/forms.js"]} -->
+
+    {{breadcrumb:1254|Get In Touch|Contact Us}}
+
+    <!-- map -->
+    <div class="rts-map-area chef rts-section-gap">
+        <div class="container">
+            <div class="map-inner">
+                <iframe class="contact-map" title="Map of Gulu City, Uganda" src="https://www.google.com/maps?q=Gulu%20City%2C%20Uganda&amp;z=13&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- contact area start -->
+    <section class="rts-contact-area contact rts-section-gapBottom bg-white" id="contact-form">
+        <div class="container">
+            <div class="row gap-y-30">
+                <div class="col-lg-6">
+                    <div class="content">
+                        <h2 class="heading-title">Talk To Team Imara</h2>
+                        <p class="desc">Questions, partnerships, media or volunteering &mdash; we're happy to hear from you. We reply within 24 hours on working days.</p>
+                        <div class="content-bottom">
+                            <div class="address">
+                                <div class="get-touch">
+                                    <ul>
+                                        <li>{{ADDRESS}}</li>
+                                        <li><a href="tel:{{PHONE_TEL}}">{{PHONE}}</a></li>
+                                        <li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <div class="open-closing-time">
+                                    <ul>
+                                        <li>Founder: {{FOUNDER}}</li>
+                                        <li>{{DOMAIN}}</li>
+                                    </ul>
+                                </div>
+                                <div class="rts-social-wrapper">
+                                    <ul>
+                                        <li><a href="https://wa.me/{{WHATSAPP}}" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                        <li><a href="tel:{{PHONE_TEL}}" aria-label="Call"><i class="fa-solid fa-phone"></i></a></li>
+                                        <li><a href="mailto:{{EMAIL}}" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-row">
+                            <a href="https://wa.me/{{WHATSAPP}}" class="rts-btn btn-primary"><i class="fa-brands fa-whatsapp"></i>&nbsp; WhatsApp Us</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Gulu%20City%2C%20Uganda" class="rts-btn btn-secondary" target="_blank" rel="noopener">Get Direction&nbsp; <i class="fa-light fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="notice privacy" style="margin-top:34px">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <p><strong>Looking for medical help?</strong> Please use our <a href="get-care.html">Get Care form</a> so your request gets a reference number and is tracked by our team.</p>
+                        </div>
+                        <div class="notice danger">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p><strong>Emergency?</strong> Imara is not an emergency service. Go to the nearest health facility immediately.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-card" style="padding:36px">
+                        <div class="notice danger form-alert" role="alert" tabindex="-1"><i class="fa-solid fa-circle-exclamation"></i><p>Please check the highlighted fields.</p></div>
+                        <form class="imara-form" data-imara-form="contact" action="api/submit.php?type=contact" method="post" novalidate>
+                            <div class="hp-field" aria-hidden="true"><label for="m-website">Leave empty</label><input type="text" id="m-website" name="website" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="started_at" value=""><input type="hidden" name="client_token" value="">
+                            <div class="form-grid" style="grid-template-columns:1fr">
+                                <div class="field"><label class="lbl" for="m-name">Your name <span class="req">*</span></label><input type="text" id="m-name" name="name" maxlength="120" autocomplete="name" required><div class="err">Please enter your name.</div></div>
+                                <div class="field"><label class="lbl" for="m-email">Email</label><input type="email" id="m-email" name="email" autocomplete="email"><div class="err">Please give an email or a phone number so we can reply.</div></div>
+                                <div class="field"><label class="lbl" for="m-phone">Phone / WhatsApp</label><div class="phone-group"><select name="phone_code" aria-label="Country code">{{phonecodes}}</select><input type="tel" id="m-phone" name="phone" inputmode="tel"></div><div class="err">Please enter a valid phone number.</div></div>
+                                <div class="field"><label class="lbl" for="m-subject">Subject</label><select id="m-subject" name="subject"><option>General enquiry</option><option>Patient support</option><option>Partnership</option><option>Volunteering</option><option>Media</option><option>Donations</option></select></div>
+                                <div class="field"><label class="lbl" for="m-msg">Message <span class="req">*</span></label><textarea id="m-msg" name="message" maxlength="2000" required></textarea><div class="err">Please write a message.</div></div>
+                            </div>
+                            <p class="hint" style="margin:12px 0 18px">By sending this form you agree that we may use your details to reply, as explained in our <a href="privacy.html">privacy policy</a>.</p>
+                            <button type="submit" class="rts-btn btn-primary">Send message <i class="fa-light fa-arrow-right"></i></button>
+                        </form>
+                        <div class="confirm-card" data-success-for="contact" hidden tabindex="-1">
+                            <div class="tick"><i class="fa-solid fa-check"></i></div>
+                            <p class="apwoyo">Apwoyo matek!</p>
+                            <h2>Thank you, <span data-fill="first_name"></span>.</h2>
+                            <div class="ref-box"><small>Your reference</small><strong data-fill="reference"></strong></div>
+                            <p>We will reply within 24 hours on working days.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact area end -->

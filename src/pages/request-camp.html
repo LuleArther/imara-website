@@ -1,0 +1,83 @@
+<!--META {"title": "Request a Medical Camp — Imara Health Initiative AFRIKA", "description": "Communities, schools, churches and institutions in Northern Uganda can ask Imara to bring a free medical camp or health outreach.", "nav": "care", "scripts": ["assets/js/forms.js"]} -->
+
+    {{breadcrumb:1262|Free Medical Camps &amp; Outreach|Request a Camp}}
+
+    <!-- how camps work (template starters list) -->
+    <section class="rts-menu-area menu-area-2 rts-section-gap">
+        <div class="container">
+            <div class="section-head">
+                <div class="title-img"><img src="assets/images/ui/title-shape.png" alt=""></div>
+                <h2 class="title-banner">Bring a Camp to Your Community</h2>
+                <p class="desc">Imara brings volunteer doctors, nurses and students to communities that find it hard to reach care. Here is how it works.</p>
+            </div>
+            <div class="menu-area-2-inner">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6"><div class="menu-wrapper"><div class="menu-image icon-circle"><i class="fa-light fa-file-pen"></i></div><div class="content"><h4 class="p-title">1. You send a request</h4><p class="desc">Tell us about your community and its health needs</p></div></div></div>
+                    <div class="col-lg-6"><div class="menu-wrapper"><div class="menu-image icon-circle"><i class="fa-light fa-phone"></i></div><div class="content"><h4 class="p-title">2. We call you</h4><p class="desc">To understand the need, venue and local leaders</p></div></div></div>
+                    <div class="col-lg-6"><div class="menu-wrapper"><div class="menu-image icon-circle"><i class="fa-light fa-calendar-check"></i></div><div class="content"><h4 class="p-title">3. We plan together</h4><p class="desc">Dates, services and volunteers &mdash; depending on resources</p></div></div></div>
+                    <div class="col-lg-6"><div class="menu-wrapper"><div class="menu-image icon-circle"><i class="fa-light fa-tents"></i></div><div class="content"><h4 class="p-title">4. Camp day &amp; follow-up</h4><p class="desc">Screening, health talks and referrals through Imara Health Bridge</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="imara-form-area" id="camp-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-card">
+                        <div class="form-card-head">
+                            <div class="eyebrow">Medical camp request</div>
+                            <h2>Request an Outreach</h2>
+                            <p>For communities, schools, churches, local leaders and institutions.</p>
+                        </div>
+                        <div class="notice danger form-alert" role="alert" tabindex="-1"><i class="fa-solid fa-circle-exclamation"></i><p>Please check the highlighted fields.</p></div>
+                        <form class="imara-form" data-imara-form="camp" action="api/submit.php?type=camp" method="post" novalidate>
+                            <div class="hp-field" aria-hidden="true"><label for="c-website">Leave empty</label><input type="text" id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="started_at" value=""><input type="hidden" name="client_token" value="">
+                            <div class="form-grid">
+                                <div class="field full"><label class="lbl" for="c-org">Community, school or institution <span class="req">*</span></label><input type="text" id="c-org" name="org_name" maxlength="150" required placeholder="e.g. Pece Primary School"><div class="err">Please enter the name.</div></div>
+                                <div class="field"><label class="lbl" for="c-name">Contact person <span class="req">*</span></label><input type="text" id="c-name" name="contact_name" maxlength="120" required autocomplete="name"><div class="err">Please enter a contact name.</div></div>
+                                <div class="field"><label class="lbl" for="c-role">Your role</label><input type="text" id="c-role" name="role_title" maxlength="100" placeholder="e.g. LC1 chairperson, head teacher, VHT"></div>
+                                <div class="field"><label class="lbl" for="c-phone">Phone / WhatsApp <span class="req">*</span></label><div class="phone-group"><select name="phone_code" aria-label="Country code">{{phonecodes}}</select><input type="tel" id="c-phone" name="phone" inputmode="tel" placeholder="7XX XXX XXX" required></div><div class="err">Please enter a valid phone number.</div></div>
+                                <div class="field"><label class="lbl" for="c-email">Email <span class="opt">(optional)</span></label><input type="email" id="c-email" name="email" autocomplete="email"><div class="err">Please enter a valid email.</div></div>
+                                <div class="field"><label class="lbl" for="c-district">District <span class="req">*</span></label><input type="text" id="c-district" name="district" maxlength="80" required placeholder="e.g. Gulu, Kitgum, Lira"><div class="err">Please enter the district.</div></div>
+                                <div class="field"><label class="lbl" for="c-place">Sub-county, parish or village <span class="req">*</span></label><input type="text" id="c-place" name="place" maxlength="150" required><div class="err">Please tell us where.</div></div>
+                                <div class="field"><label class="lbl" for="c-people">About how many people?</label><input type="number" id="c-people" name="people" min="1" max="100000" inputmode="numeric"><div class="err">Please enter a number.</div></div>
+                                <div class="field"><label class="lbl" for="c-dates">Preferred dates</label><input type="text" id="c-dates" name="dates" maxlength="120" placeholder="e.g. any Saturday in March"></div>
+                                <div class="field full"><span class="lbl">Services most needed</span><div class="choice-group">{{checks:camp_services:services}}</div></div>
+                                <div class="field full"><span class="lbl" id="c-venue-l">Is there a venue (school, church, health centre or open space)?</span><div class="choice-group" role="radiogroup" aria-labelledby="c-venue-l">
+                                    <label class="choice-pill"><input type="radio" name="venue" value="Yes"><span>Yes</span></label>
+                                    <label class="choice-pill"><input type="radio" name="venue" value="No"><span>No</span></label>
+                                    <label class="choice-pill"><input type="radio" name="venue" value="Not sure"><span>Not sure</span></label>
+                                </div></div>
+                                <div class="field full"><label class="lbl" for="c-msg">Main health needs in the community</label><textarea id="c-msg" name="message" maxlength="1500" placeholder="e.g. many children with malaria, no health centre nearby"></textarea></div>
+                                <label class="consent-box required-box full field" for="c-consent"><input type="checkbox" id="c-consent" name="consent" value="1" required><span>I agree that Imara may contact me about this request, as explained in the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>. <span class="req" style="color:#B42318">*</span></span></label>
+                            </div>
+                            <div class="form-nav"><span></span><button type="submit" class="rts-btn btn-primary">Send camp request</button></div>
+                        </form>
+                        <div class="confirm-card" data-success-for="camp" hidden tabindex="-1">
+                            <div class="tick"><i class="fa-solid fa-check"></i></div>
+                            <p class="apwoyo">Apwoyo matek!</p>
+                            <h2>Thank you, <span data-fill="first_name"></span>.</h2>
+                            <div class="ref-box"><small>Your reference</small><strong data-fill="reference"></strong></div>
+                            <p>Our team will call you to talk about your community's needs. Camps depend on volunteers and funding, so we cannot promise a date straight away &mdash; but we will keep you informed.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="side-info">
+                        <div class="banner-shape-area"><span class="shape"></span><span class="shape"></span><span class="shape"></span></div>
+                        <h3>At a typical camp</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-stethoscope"></i><span>Free consultations with doctors and nurses</span></li>
+                            <li><i class="fa-solid fa-vial"></i><span>Testing and screening</span></li>
+                            <li><i class="fa-solid fa-chalkboard-user"></i><span>Health education talks</span></li>
+                            <li><i class="fa-solid fa-route"></i><span>Referrals and follow-up through Imara Health Bridge</span></li>
+                        </ul>
+                        <p style="margin-top:24px">Need care for one person now? <a href="get-care.html">Use Get Care instead</a>.</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>

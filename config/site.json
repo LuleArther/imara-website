@@ -1,0 +1,15 @@
+{
+  "_comment": "Organisation details used across every page and by the PHP backend. After editing, run: python tools/build.py",
+  "org_name": "Imara Health Initiative AFRIKA",
+  "programme": "Imara Health Bridge Gulu",
+  "tagline": "Strong Communities. Strong Health. Strong Afrika.",
+  "founder": "Lamtoo Clifton",
+  "phone_display": "+256 777 106608",
+  "phone_tel": "+256777106608",
+  "whatsapp": "256777106608",
+  "email": "hello@imaraafrika.org",
+  "domain": "www.imaraafrika.org",
+  "site_url": "https://www.imaraafrika.org",
+  "address": "Gulu City, Northern Uganda",
+  "year": "2026"
+}
