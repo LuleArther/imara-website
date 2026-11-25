@@ -8,7 +8,13 @@ Website for **Imara Health Initiative AFRIKA** (Gulu City, Northern Uganda), bui
 
 **https://lulearther.github.io/imara-website/**
 
-This is a static preview hosted on GitHub Pages. GitHub Pages cannot run PHP, so on the preview the forms show a "call or WhatsApp us" message instead of submitting, and the staff dashboard is not included. The full system runs on PHP hosting (see [docs/HANDOVER.md](docs/HANDOVER.md)). The preview is hidden from search engines.
+This is a static preview hosted on GitHub Pages. GitHub Pages cannot run PHP, so the preview runs in **test mode**:
+
+- Forms are saved only in the visitor's own browser, and every form says clearly that nothing is sent to Imara.
+- A **test dashboard** at https://lulearther.github.io/imara-website/demo-admin/ shows those requests with the same screens and referral rules as the real dashboard. Test login: `test@imaraafrika.org` / `imara-test` (shown on the sign-in page).
+- Each device sees only its own test data plus 4 sample requests. "Reset test data" in the sidebar starts again.
+
+The real, shared system runs on PHP hosting (see [docs/HANDOVER.md](docs/HANDOVER.md)). Test-mode files live in `preview/` and are added only to the preview. The preview is hidden from search engines.
 
 To update the preview after changing the site: `python tools/publish_preview.py`
 

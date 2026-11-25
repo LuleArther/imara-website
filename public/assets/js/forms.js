@@ -130,6 +130,10 @@
 
     /* POST the form as FormData; resolves with the parsed JSON (or a network-error object). */
     function send(form) {
+        // Preview build: test mode saves the form in this browser (assets/js/demo-store.js, preview only)
+        if (window.ImaraDemo && typeof window.ImaraDemo.submit === 'function') {
+            return window.ImaraDemo.submit(form);
+        }
         if (PREVIEW) {
             return Promise.resolve({ ok: false, error: 'preview', message: previewMessage() });
         }
