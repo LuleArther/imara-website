@@ -4,6 +4,14 @@ Website for **Imara Health Initiative AFRIKA** (Gulu City, Northern Uganda), bui
 
 *Strong Communities. Strong Health. Strong Afrika.*
 
+## Live preview
+
+**https://lulearther.github.io/imara-website/**
+
+This is a static preview hosted on GitHub Pages. GitHub Pages cannot run PHP, so on the preview the forms show a "call or WhatsApp us" message instead of submitting, and the staff dashboard is not included. The full system runs on PHP hosting (see [docs/HANDOVER.md](docs/HANDOVER.md)). The preview is hidden from search engines.
+
+To update the preview after changing the site: `python tools/publish_preview.py`
+
 ## Quick start (Windows)
 
 Double-click **`run-dev.bat`**, then open:
